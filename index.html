@@ -177,7 +177,67 @@
                 padding: 10px 12px;
                 outline: none;
             }
+            .help__outer {
+    margin-top: 18px;
+    text-align: center;
+    font-family: "Courier New", monospace;
+}
 
+.help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.help__keys {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.help__keys-line {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.help__key_small,
+.help__key_big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: #d9d9d9;
+    color: #444;
+}
+
+.help__key_small {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+}
+
+.help__key_big {
+    padding: 8px 18px;
+    font-size: 16px;
+}
+
+.help__key_active {
+    background: #5a5a5a;
+    color: white;
+}
+
+.help__space {
+    font-size: 16px;
+    color: #555;
+}
+
+.help__tap {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+}
             @media (max-width: 620px) {
                 .post-game-actions {
                     width: 100vw;
@@ -192,10 +252,12 @@
                     width: 100%;
                     text-align: center;
                 }
-            }
+                    .help {
+        flex-direction: column;
+        gap: 12px;
+    }
 
-            @media (max-width: 620px) {
-                #game-wrapper {
+                                #game-wrapper {
                     width: 100vw;
                 }
                 .header h1 {
@@ -218,6 +280,26 @@
             <div class="game-container">
                 <div class="score-hud" id="score-hud">00000</div>
                 <canvas id="game-canvas" width="600" height="180"></canvas>
+                <div class="help__outer">
+    <div class="help">
+        <div class="help__keys">
+            <div class="help__keys-line">
+                <div class="help__key_small help__key_active">↑</div>
+            </div>
+            <div class="help__keys-line">
+                <div class="help__key_small">←</div>
+                <div class="help__key_small help__key_active">↓</div>
+                <div class="help__key_small">→</div>
+            </div>
+        </div>
+
+        <div class="help__space">or</div>
+
+        <span class="help__key_big help__key_active">Space</span>
+    </div>
+
+    <div class="help__tap">Jump</div>
+</div>
             </div>
             <div id="game-over-overlay">
                 <div class="distracted">
