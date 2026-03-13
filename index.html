@@ -264,6 +264,31 @@
                     font-size: 36px;
                 }
             }
+
+                        .logo-footer {
+                margin-top: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .logo-footer a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                transition: opacity 0.2s;
+            }
+
+            .logo-footer a:hover {
+                opacity: 0.8;
+            }
+
+            .logo-footer img,
+            .logo-footer svg {
+                height: 48px;
+                width: auto;
+            }
         </style>
     </head>
     <body>
@@ -329,9 +354,11 @@
                 />
                 <button type="submit" class="search-button">Search</button>
             </form>
-            <a class="tgc-button" href="https://www.thegospelcoalition.org/">
-                Back to TGC
+        <div class="logo-footer">
+            <a href="https://www.thegospelcoalition.org/" aria-label="The Gospel Coalition">
+                <img src="TGC-Box-Logo-535353.svg" alt="The Gospel Coalition" />
             </a>
+        </div>
         </div>
 
         <script>
