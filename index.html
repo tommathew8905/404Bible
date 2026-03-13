@@ -119,7 +119,7 @@
                 letter-spacing: 2px;
             }
             .post-game-actions {
-                margin-top: 18px;
+                margin-top: 40px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -293,7 +293,9 @@
         <span class="help__key_big help__key_active">Space</span>
     </div>
 
-    <div class="help__tap">Jump</div>
+    <div class="instructions" id="instructions">
+        Press Space or Tap to jump those distractions.
+    </div>
 </div>
             </div>
             <div id="game-over-overlay">
@@ -310,15 +312,9 @@
             </div>
         </div>
 
-        <div class="instructions" id="instructions">
-            Press Space or Tap to jump — dodge the distractions!
-        </div>
+
 
         <div class="post-game-actions">
-            <a class="tgc-button" href="https://www.thegospelcoalition.org/">
-                Back to TGC
-            </a>
-
             <form
                 class="search-form"
                 action="https://www.thegospelcoalition.org/"
@@ -333,6 +329,9 @@
                 />
                 <button type="submit" class="search-button">Search</button>
             </form>
+            <a class="tgc-button" href="https://www.thegospelcoalition.org/">
+                Back to TGC
+            </a>
         </div>
 
         <script>
