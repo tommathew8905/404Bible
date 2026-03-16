@@ -41,7 +41,7 @@
                 font-size: 26px;
                 color: #535353;
                 margin-top: 8px;
-                margin-bottom:40px;
+                margin-bottom: 40px;
             }
             #game-wrapper {
                 position: relative;
@@ -113,16 +113,33 @@
                 max-width: 100vw;
             }
 
-            .score-hud {
+            .hud-row {
                 position: absolute;
                 top: -26px;
                 right: 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                user-select: none;
+                font-family: "Courier New", monospace;
+            }
+            .score-hud {
                 font-size: 16px;
                 font-weight: bold;
                 color: #535353;
-                user-select: none;
-                font-family: "Courier New", monospace;
                 letter-spacing: 2px;
+            }
+            .dove-hud {
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                font-size: 14px;
+                font-weight: bold;
+                color: #535353;
+            }
+            .dove-hud img {
+                width: 18px;
+                height: 18px;
             }
             .post-game-actions {
                 margin-top: 40px;
@@ -184,66 +201,66 @@
                 outline: none;
             }
             .help__outer {
-    margin-top: 18px;
-    text-align: center;
-    font-family: "Courier New", monospace;
-}
+                margin-top: 18px;
+                text-align: center;
+                font-family: "Courier New", monospace;
+            }
 
-.help {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-}
+            .help {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 18px;
+            }
 
-.help__keys {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
+            .help__keys {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
 
-.help__keys-line {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-}
+            .help__keys-line {
+                display: flex;
+                justify-content: center;
+                gap: 4px;
+            }
 
-.help__key_small,
-.help__key_big {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    background: #d9d9d9;
-    color: #444;
-}
+            .help__key_small,
+            .help__key_big {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
+                background: #d9d9d9;
+                color: #444;
+            }
 
-.help__key_small {
-    width: 34px;
-    height: 34px;
-    font-size: 16px;
-}
+            .help__key_small {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
 
-.help__key_big {
-    padding: 8px 18px;
-    font-size: 16px;
-}
+            .help__key_big {
+                padding: 8px 18px;
+                font-size: 16px;
+            }
 
-.help__key_active {
-    background: #5a5a5a;
-    color: white;
-}
+            .help__key_active {
+                background: #5a5a5a;
+                color: white;
+            }
 
-.help__space {
-    font-size: 16px;
-    color: #555;
-}
+            .help__space {
+                font-size: 16px;
+                color: #555;
+            }
 
-.help__tap {
-    margin-top: 8px;
-    font-size: 13px;
-    color: #666;
-}
+            .help__tap {
+                margin-top: 8px;
+                font-size: 13px;
+                color: #666;
+            }
             @media (max-width: 620px) {
                 .post-game-actions {
                     width: 100vw;
@@ -258,12 +275,12 @@
                     width: 100%;
                     text-align: center;
                 }
-                    .help {
-        flex-direction: column;
-        gap: 12px;
-    }
+                .help {
+                    flex-direction: column;
+                    gap: 12px;
+                }
 
-                                #game-wrapper {
+                #game-wrapper {
                     width: 100vw;
                 }
                 .header h1 {
@@ -271,7 +288,7 @@
                 }
             }
 
-                        .logo-footer {
+            .logo-footer {
                 margin-top: 40px;
                 display: flex;
                 justify-content: center;
@@ -303,31 +320,40 @@
                 <h1>404</h1>
                 <p class="subtitle">This page wandered off.</p>
                 <p>
-                    Since you're here, help Lem hurdle those distractions
-                    and get some time in the Word.
+                    Since you're here, help Lem hurdle those distractions and
+                    get some time in the Word.
                 </p>
             </div>
 
             <div class="game-container">
-                <div class="score-hud" id="score-hud">00000</div>
+                <div class="hud-row">
+                    <div class="score-hud" id="score-hud">00000</div>
+                    <div class="dove-hud" id="dove-hud" style="visibility:hidden">
+                        <img src="dove.png" alt="dove" /><span id="dove-count">0</span>
+                    </div>
+                </div>
                 <canvas id="game-canvas" width="600" height="180"></canvas>
                 <div class="help__outer">
-    <div class="help">
-        <div class="help__keys">
-            <div class="help__keys-line">
-                <div class="help__key_small help__key_active">↑</div>
-            </div>
-        </div>
+                    <div class="help">
+                        <div class="help__keys">
+                            <div class="help__keys-line">
+                                <div class="help__key_small help__key_active">
+                                    ↑
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="help__space">or</div>
+                        <div class="help__space">or</div>
 
-        <span class="help__key_big help__key_active">Space</span>
-    </div>
+                        <span class="help__key_big help__key_active"
+                            >Space</span
+                        >
+                    </div>
 
-    <div class="instructions" id="instructions">
-        Press Space or Tap to jump those distractions.
-    </div>
-</div>
+                    <div class="instructions" id="instructions">
+                        Press Space or Tap to jump those distractions.
+                    </div>
+                </div>
             </div>
             <div id="game-over-overlay">
                 <div class="distracted">
@@ -342,8 +368,6 @@
                 <div class="restart-hint">Press Space or Tap to try again</div>
             </div>
         </div>
-
-
 
         <div class="post-game-actions">
             <form
@@ -360,11 +384,17 @@
                 />
                 <button type="submit" class="search-button">Search</button>
             </form>
-        <div class="logo-footer">
-            <a href="https://www.thegospelcoalition.org/" aria-label="The Gospel Coalition">
-                <img src="TGC-Box-Logo-535353.svg" alt="The Gospel Coalition" />
-            </a>
-        </div>
+            <div class="logo-footer">
+                <a
+                    href="https://www.thegospelcoalition.org/"
+                    aria-label="The Gospel Coalition"
+                >
+                    <img
+                        src="TGC-Box-Logo-535353.svg"
+                        alt="The Gospel Coalition"
+                    />
+                </a>
+            </div>
         </div>
 
         <script>
@@ -384,6 +414,16 @@
                 const ACCELERATION = 0.0004;
                 const MIN_OBSTACLE_GAP = 300;
                 const OBSTACLE_CLEAR_TIME = 1500; // ms before obstacles start
+
+                // ── DOVE CONFIG ──
+                const MIN_DOVE_GAP = 3200;
+                const DOVE_CLEAR_TIME = 24000; // ms before doves can appear
+                const DOVE_W = 32;
+                const DOVE_H = 32;
+                const DOVE_FLY_Y = GROUND_Y - 90; // fixed elevated Y (requires jump)
+                const DOVE_BOB_AMP = 6; // pixels of vertical bob
+                const DOVE_BOB_SPEED = 0.004; // bob frequency
+                const DOVE_INVINCIBILITY_MS = 1000; // ms of invincibility after save
 
                 // ── OBSTACLE TYPES ──
                 const OBSTACLE_IMGS = (function () {
@@ -524,6 +564,8 @@
                 const overlay = document.getElementById("game-over-overlay");
                 const scoreHud = document.getElementById("score-hud");
                 const finalScoreEl = document.getElementById("final-score");
+                const doveHudEl = document.getElementById("dove-hud");
+                const doveCountEl = document.getElementById("dove-count");
                 const instructionsEl = document.getElementById("instructions");
 
                 let dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -550,6 +592,15 @@
                 // Obstacles
                 let obstacles = [];
                 let nextObstacleIn = 0; // pixels until next obstacle spawns
+
+                // Doves
+                const doveImg = new Image();
+                doveImg.src = "dove.png";
+                let doves = [];
+                let nextDoveIn = 0;
+                let doveCount = 0;
+                let invincibleUntil = 0; // timestamp when invincibility ends
+                let helperMsg = null; // { text, alpha, x, y }
 
                 // Ground tiles
                 let groundOffset = 0;
@@ -771,6 +822,13 @@
                     runningTime = 0;
                     obstacles = [];
                     nextObstacleIn = 200;
+                    doves = [];
+                    nextDoveIn = 0;
+                    doveCount = 0;
+                    invincibleUntil = 0;
+                    helperMsg = null;
+                    doveHudEl.style.visibility = "hidden";
+                    doveCountEl.textContent = "0";
                     player.y = GROUND_Y - player.h;
                     player.vy = 0;
                     player.jumping = false;
@@ -799,6 +857,31 @@
                         y: 20 + Math.random() * 40,
                         speed: 0.3 + Math.random() * 0.5,
                     });
+                }
+
+                function spawnDove() {
+                    doves.push({
+                        x: CANVAS_W,
+                        y: DOVE_FLY_Y,
+                        bobOffset: Math.random() * Math.PI * 2,
+                    });
+                }
+
+                function checkDoveCollision(dove) {
+                    const px = player.x + 6;
+                    const py = player.y + 4;
+                    const pw = player.w - 12;
+                    const ph = player.h - 6;
+                    const dx = dove.x + 2;
+                    const dy = dove.y + Math.sin(dove.bobOffset) * DOVE_BOB_AMP + 2;
+                    const dw = DOVE_W - 4;
+                    const dh = DOVE_H - 4;
+                    return (
+                        px < dx + dw &&
+                        px + pw > dx &&
+                        py < dy + dh &&
+                        py + ph > dy
+                    );
                 }
 
                 function update(dt) {
@@ -847,6 +930,35 @@
                         }
                     }
 
+                    // Spawn doves
+                    if (runningTime > DOVE_CLEAR_TIME) {
+                        nextDoveIn -= speed * (dt / 16.67);
+                        if (nextDoveIn <= 0) {
+                            spawnDove();
+                            nextDoveIn =
+                                MIN_DOVE_GAP + Math.random() * 2000;
+                        }
+                    }
+
+                    // Update doves
+                    for (let i = doves.length - 1; i >= 0; i--) {
+                        let dove = doves[i];
+                        dove.x -= speed * (dt / 16.67);
+                        dove.bobOffset += DOVE_BOB_SPEED * dt;
+
+                        if (dove.x + DOVE_W < 0) {
+                            doves.splice(i, 1);
+                            continue;
+                        }
+
+                        if (checkDoveCollision(dove)) {
+                            doveCount++;
+                            doveCountEl.textContent = doveCount;
+                            doveHudEl.style.visibility = "visible";
+                            doves.splice(i, 1);
+                        }
+                    }
+
                     // Update obstacles
                     for (let i = obstacles.length - 1; i >= 0; i--) {
                         let ob = obstacles[i];
@@ -858,9 +970,27 @@
                         }
 
                         if (checkCollision(ob)) {
+                            if (runningTime < invincibleUntil) {
+                                obstacles.splice(i, 1);
+                                continue;
+                            }
+                            if (doveCount > 0) {
+                                doveCount--;
+                                doveCountEl.textContent = doveCount;
+                                invincibleUntil = runningTime + DOVE_INVINCIBILITY_MS;
+                                helperMsg = { alpha: 1, x: player.x + player.w / 2, y: player.y - 20 };
+                                obstacles.splice(i, 1);
+                                continue;
+                            }
                             gameOver(ob);
                             return;
                         }
+                    }
+
+                    // Fade helper message
+                    if (helperMsg) {
+                        helperMsg.alpha -= dt / 1000;
+                        if (helperMsg.alpha <= 0) helperMsg = null;
                     }
 
                     // Update clouds
@@ -881,6 +1011,14 @@
                         drawObstacle(ob);
                     }
 
+                    // Draw doves
+                    for (let dove of doves) {
+                        const bobY = dove.y + Math.sin(dove.bobOffset) * DOVE_BOB_AMP;
+                        if (doveImg.complete) {
+                            ctx.drawImage(doveImg, dove.x, bobY, DOVE_W, DOVE_H);
+                        }
+                    }
+
                     // Draw player
                     drawPlayer(
                         player.x,
@@ -889,6 +1027,22 @@
                         player.jumping,
                         gameState === "dead",
                     );
+
+                    // Draw "Helper!" message above the player
+                    if (helperMsg) {
+                        ctx.save();
+                        ctx.globalAlpha = helperMsg.alpha;
+                        ctx.font = "bold 14px 'Courier New', monospace";
+                        ctx.fillStyle = "#535353";
+                        ctx.textAlign = "center";
+                        const msgX = helperMsg.x;
+                        const msgY = helperMsg.y;
+                        if (doveImg.complete) {
+                            ctx.drawImage(doveImg, msgX - 38, msgY - 14, 18, 18);
+                        }
+                        ctx.fillText("Helper!", msgX + 18, msgY);
+                        ctx.restore();
+                    }
                 }
 
                 function gameOver(hitObstacle) {
